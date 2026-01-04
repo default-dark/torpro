@@ -5,5 +5,5 @@ apenas um facilitador test para instalar o tor e o proxychains
 </a>
 
 <h1> sistemas possiveis </h1>
-archlinux 
-linux
+<p> archlinux </p>
+<p> linux </p>
