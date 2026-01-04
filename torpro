@@ -1,0 +1,92 @@
+#!/bin/bash
+red="\033[0;31m"
+green="\033[1;32m"
+echo -e $green""" 
+
+      #####  ####  #####        #####  #####   ####  #    # #   #
+	#   #    # #    #       #    # #    # #    #  #  #   # #
+	#   #    # #    # ##### #    # #    # #    #   ##     #
+	#   #    # #####        #####  #####  #    #   ##     #
+	#   #    # #   #        #      #   #  #    #  #  #    #
+	#    ####  #    #       #      #    #  ####  #    #   #
+
+"""
+echo -e $red"""
+ -e = enable tor
+ -d = disable tor
+ -s = status tor
+ -p = proxy firefox
+ -q = proxy chromium
+ -w = proxy google
+ -b = proxy brave
+ -v = proxy vilvaldi
+ -p = proxy opera 
+ -m = proxy microsoft-edge 
+ -c = configuracao do proxychains 
+ -h = help 
+ -g = criador
+"""
+
+getopts edsgcpqwbvom  machine
+case $machine in
+	e)
+		sleep 2	
+		sudo systemctl start tor 
+		sudo systemctl status tor
+		;;
+	d)
+		sleep 2 
+		sudo systemctl stop tor
+		sudo systemctl status tor
+		;;
+	s) 
+		sleep 2
+		sudo systemctl status tor
+		;;
+	p)
+		sleep 2
+		proxychains firefox
+		;;
+	q)
+		sleep 2
+		proxychains chromium
+		;;
+	b) 
+		sleep 2 
+		proxychains brave 
+		;;
+	v) 
+		sleep 2 
+		proxychains vivaldi
+		;;
+	o) 
+		sleep 2 
+		proxychains opera
+		;;
+	m) 
+		sleep 2 
+		proxychains microsoft-edge
+		;;
+
+	w) 
+		sleep 2
+		proxychains google-chrome 
+		;;
+	g)
+		sleep 2 
+		echo -e $red"este e o link do criador desse script"
+		echo -e $red"https://github.com/default-dark"
+		;;
+	c) 
+		sleep 2 
+		sudo vim /etc/proxychains.conf
+		;;
+
+	*)
+
+		sleep 2 
+		echo -e $red "execute os comando acima"
+		;;
+
+esac 
+
